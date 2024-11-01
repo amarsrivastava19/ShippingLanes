@@ -13,6 +13,14 @@ To use ShippingLanes, first install it using pip:
    (.venv) $ pip install ShippingLanes
 
 
+
+Or, in ipynb notebooks:
+
+.. code-block:: console
+
+   !pip install ShippingLanes
+
+
 Initialization
 ----------------
 

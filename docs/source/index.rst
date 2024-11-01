@@ -22,6 +22,4 @@ Contents
 
 .. toctree::
    installation
-   usage
-   raw graph data
-   
+   usage   

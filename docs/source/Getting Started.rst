@@ -14,7 +14,7 @@ To use ShippingLanes, first install it using pip:
 
 
 
-Or, in ipynb notebooks:
+If you are using .ipynb notebooks, ShippingLanes can be brought in via:
 
 .. code-block:: console
 

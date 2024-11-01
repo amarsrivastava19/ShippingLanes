@@ -6,29 +6,21 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use ShippingLanes, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (.venv) $ pip install ShippingLanes
 
-Creating recipes
+
+Initialization
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+At this time, ShippingLanes only contains one major functionality: to convert latitude and longitude pairs into meaningful routes.
 
-.. autofunction:: lumache.get_random_ingredients
+As such, it is easiest to directly import the findRoutes() method into your project as follows:
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
 
-.. autoexception:: lumache.InvalidKindError
+>>> from ShippingLanes import findRoutes
 
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
 

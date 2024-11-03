@@ -1,7 +1,7 @@
 ShippingLanes
 ===================================
 
-**ShippingLanes** is an ultra-lightweight Python extension which can calculate routes on major US highway networks. 
+**ShippingLanes** is an ultra-lightweight Python extension which can calculate driving routes on major US highway networks. 
 
 [Placeholder for image]
 

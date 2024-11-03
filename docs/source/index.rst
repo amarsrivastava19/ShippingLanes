@@ -3,22 +3,22 @@ ShippingLanes
 
 **ShippingLanes** is an ultra-lightweight Python extension which can calculate routes on major US highway networks. 
 
-This tool is primarily meant for supply chain analysts and industrial engineers working in Python environments.  
+[Placeholder for image]
 
-The performance of ShippingLanes is benchmarked against premium map providers like GoogleMaps - it aims to match calculated driving distances within 2% of the true value. 
+This tool is ideal for supply chain analysts and industrial engineers working within Python environments, offering a fast, accurate alternative to premium mapping services.
 
-With a performance benchmark of 2ms per calculated route, it aims to be a happy middle ground between as-the-crow-flies analysis and premium transportation optimization software - especially over large amounts of shipping data. 
+ShippingLanes is benchmarked against providers like Google Maps, aiming to match calculated driving distances within 5% of actual values. It performs particularly well on long routes with low curvature radii, closely aligning with benchmark distances.
 
+With a performance benchmark of just 2ms per route calculation, ShippingLanes strikes a balance between basic "as-the-crow-flies" analysis and high-end transportation optimization software. This makes it ideal for users needing custom or specialized analysis on large volumes of shipping data.
 
-Start with the :doc:`gettingstarted` section to jump into the core functionality.
+To get started, head to the :doc:`gettingstarted` section for core functionality.
 
-.. note::
-
-   This project is under active development.
 
 Contents
 --------
 
 .. toctree::
    gettingstarted
-   api   
+   findingroutes
+   practicalapplications
+

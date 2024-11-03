@@ -1,8 +1,6 @@
 Getting Started
 =====
 
-.. _installation:
-
 Installation
 ------------
 
@@ -16,11 +14,14 @@ To use ShippingLanes, first install it using pip:
 Initialization
 ----------------
 
-At this time, ShippingLanes only contains one major functionality: to convert latitude and longitude pairs into meaningful routes.
+ShippingLanes is centered around one primary function: converting latitude and longitude pairs into meaningful routes.
 
-As such, it is easiest to directly import the ``ShippingLanes.findRoutes()`` method into your project as follows:
-
+To get started, you can import the ``findRoutes`` method directly into your project:
 
 >>> from ShippingLanes import findRoutes
+
+
+Continue to the next section: :doc:`Finding Routes <findingroutes>`
+
 
 

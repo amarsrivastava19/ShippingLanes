@@ -47,3 +47,5 @@ The routes returned by `findRoutes` can be directly incorporated back into your 
    df["NodePath"] = [route.NodePath for route in routes]
    df["CoordinatePath"] = [route.CoordinatePath for route in routes]
 
+
+Continue to the next section: :doc:`Practical Applications <practicalapplications>`

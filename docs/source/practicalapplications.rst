@@ -7,7 +7,8 @@ Plotting Routes with CoordinatePaths
 ----------------
 
 The primary purpose of the `CoordinatePath` attribute is to visualize routes. There are many modules that can help with this endeavor - this tutorial will use `plotly.express` for simplicity.
-To get 
+
+To allow for free-form text input, we can leverage GeoPy's geoencoding service as as an optional step. We will define a function that converts origin and destination as text inputs into a list of list format of coordinates as expected by `findRoutes`.  
 
 
 .. code-block:: python

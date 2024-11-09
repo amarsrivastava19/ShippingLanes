@@ -50,19 +50,19 @@ To get
        return None
    
    
-   origin = 'Chicago'
-   destination = 'Boulder CO'
+   origin = 'San Francisco, CA'
+   destination = 'Seattle, WA'
    
    plotRoute(origin, destination)
 
 
 This will generate the following plot:
 
-[Placeholder Image]
+.. image:: SanFranToSeattle.png
 
 We can compare this against a premium mapping service like Google maps:
 
-[Placeholder Image]
+.. image:: SanFranToSeattle_Google.png
 
 
 Identifying Synergies with NodePaths
@@ -137,8 +137,7 @@ To demonstrate the performance of the findRoutes library, we will generate 2000 
 
 Running the above code produces the following output:
 
-[Image placeholder]
-
+.. image:: LaneOverlapDemo.png
 
 Conclusion
 ----------

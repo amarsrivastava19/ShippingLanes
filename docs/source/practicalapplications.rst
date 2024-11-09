@@ -43,9 +43,9 @@ To get
            height=600
        )
    
-       print("Your origin is: {}".format(origin))
-       print("Your destination is: {}".format(destination))
-       print("Your driving distance is: {}".format(distance))
+       print(f"Your origin is: {origin}")
+       print(f"Your destination is: {destination}")
+       print(f"Your driving distance is: {distance:.2f} mi.")
        fig.show()
        return None
    
@@ -67,24 +67,78 @@ We can compare this against a premium mapping service like Google maps:
 
 Identifying Synergies with NodePaths
 --------------------------
+One of the purposes of the `NodePaths` attribute is to give analysts and engineers a way to "index" transportation behavior. The ShippingLanes highway network only includes major motorways and trunks. As such, for routes of sufficient distance, there is a higher likelihood of similar routes appearing on similar network segments.
 
-The `compare_routes` function in `ShippingLanes` allows you to analyze and compare multiple routes. You can use this to determine optimal paths or identify key differences between alternate routes.
+As such, we can quickly compare and contrast large volumes of data by simply looking at the intersections between NodePaths - the most similar routes will have a greater number of nodes in common. 
+
+This can be used for identifying backhaul opportunities (routes that allow a truck to return with a full load) and interhaul opportunities (routes that are "on the way" as other routes). 
+
+To demonstrate the performance of the findRoutes library, we will generate 2000 random lanes based on a bounding box set within the continental united states. Then, we will search for routes that have strong overlaps (80% of nodes in common) and medium overlaps (50% of nodes in common).
 
 .. code-block:: python
 
-    from ShippingLanes import compare_routes
+   from ShippingLanes import findRoutes
+   import random
+   import time
+   from itertools import combinations
+   
+   
+   def generateCoordinates(n=1):
+       lat_min, lat_max = 24.396308, 49.384358
+       lon_min, lon_max = -125.0, -66.93457
+       
+       coordinates = []
+       for _ in range(n):
+           origin_lat = random.uniform(lat_min, lat_max)
+           origin_lon = random.uniform(lon_min, lon_max)
+           dest_lat = random.uniform(lat_min, lat_max)
+           dest_lon = random.uniform(lon_min, lon_max)
+           coordinates.append([origin_lat, origin_lon, dest_lat, dest_lon])
+       
+       return coordinates
+   
+   def laneSimilarity(list1, list2):
+       intersection = set(list1).intersection(list2)
+       similarity = (len(intersection) / min(len(list1), len(list2))) * 100
+       return similarity
+   
+   def countSimilarLanes(lists, threshold=80):
+       count = 0
+       for list1, list2 in combinations(lists, 2):
+           if laneSimilarity(list1, list2) >= threshold:
+               count += 1
+       return count
+   
+   
+   n = 2000
+   coordinates = generateCoordinates(n)
+   start_time = time.time()
+   routes = findRoutes(coordinates)
+   nodePaths = [i.NodePath for i in routes]
+   routed_time = time.time() - start_time
+   print(f"{n} lanes were routed in {routed_time:.2f} seconds")
+   
+   
+   start_time = time.time()
+   strong_overlaps = countSimilarLanes(nodePaths, threshold=80)
+   compare_time = time.time() - start_time
+   print(f"{n**2:,} route combinations analyzed in {compare_time:.2f} seconds")
+   
+   med_overlaps = countSimilarLanes(nodePaths, threshold=50)
+   
+   
+   print("............")
+   print("............")
+   
+   print(f"{strong_overlaps:,} pairs of lanes detected with STRONG (80% >) overlap")
+   print(f"{med_overlaps:,} pairs of lanes detected with MEDIUM (50% >) overlap")
 
-    # Example route data
-    route1 = [...]
-    route2 = [...]
 
-    # Compare the routes
-    results = compare_routes(route1, route2)
 
-    # Display comparison results
-    print(results)
+Running the above code produces the following output:
 
-This function provides a detailed comparison of each route, highlighting metrics such as distance, time, or other relevant attributes.
+[Image placeholder]
+
 
 Conclusion
 ----------

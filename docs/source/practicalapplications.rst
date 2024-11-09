@@ -139,7 +139,3 @@ Running the above code produces the following output:
 
 .. image:: LaneOverlapDemo.png
 
-Conclusion
-----------
-
-Using `ShippingLanes`, you can easily plot complex graphs and perform detailed comparisons between routes, giving you valuable insights into optimal paths and shipping strategies.

@@ -20,16 +20,17 @@ The `findRoutes` method expects the input data to be formatted as a list of list
 
 .. code-block:: python
 
-   
+   from ShippingLanes import findRoutes
    import pandas as pd
 
    df = pd.DataFrame({
-       "origin_latitude": [34.0522, 36.1699],
-       "origin_longitude": [-118.2437, -115.1398],
-       "destination_latitude": [37.7749, 40.7128],
-       "destination_longitude": [-122.4194, -74.0060]
-   })
-
+       "Lane" : ["San Francisco to Seattle", "Portland to Las Vegas"],
+       "origin_latitude": [37.774929, 45.515232],
+       "origin_longitude": [-122.419418, -122.678429],
+       "destination_latitude": [47.606209, 36.169941],
+       "destination_longitude": [-122.332069, -115.139832]
+      }).set_index("Lane")
+   
    # Convert to list of lists format
    coordinates = df.values.tolist()
 
@@ -41,11 +42,15 @@ The routes returned by `findRoutes` can be directly incorporated back into your 
 
 .. code-block:: python
 
-  routes = findRoutes(coordinates)
-
+   routes = findRoutes(coordinates)
+   
    df["Distance"] = [route.Distance for route in routes]
    df["NodePath"] = [route.NodePath for route in routes]
    df["CoordinatePath"] = [route.CoordinatePath for route in routes]
 
+
+The output dataframe should look as follows:
+
+.. image: example_df.png
 
 Continue to the next section: :doc:`Practical Applications <practicalapplications>`

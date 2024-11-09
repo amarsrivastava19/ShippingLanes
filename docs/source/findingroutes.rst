@@ -51,6 +51,6 @@ The routes returned by `findRoutes` can be directly incorporated back into your 
 
 The output dataframe should look as follows:
 
-.. image: example_df.png
+.. image:: example_df.png
 
 Continue to the next section: :doc:`Practical Applications <practicalapplications>`

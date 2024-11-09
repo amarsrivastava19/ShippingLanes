@@ -1,14 +1,14 @@
 Practical Applications
 ======================
 
-This section demonstrates a few ways that ShippingLanes `Route` objects can be used in supply chain analysis.
+This section demonstrates a few ways that ShippingLanes ``Route`` objects can be used in supply chain analysis.
 
 Plotting Routes with CoordinatePaths
 ----------------
 
-The primary purpose of the `CoordinatePath` attribute is to visualize routes. There are many modules that can help with this endeavor - this tutorial will use `plotly.express` for simplicity.
+The primary purpose of the ``CoordinatePath`` attribute is to visualize routes. There are many modules that can help with this endeavor - this tutorial will use ``plotly.express`` for simplicity.
 
-To allow for free-form text input, we can leverage GeoPy's geoencoding service as as an optional step. We will define a function that converts origin and destination as text inputs into a list of list format of coordinates as expected by `findRoutes`.  
+To allow for free-form text input, we can leverage ``GeoPy`` and its geoencoding service as as an optional step. We will define a function that converts origin and destination as text inputs into a list of list format of coordinates as expected by ``findRoutes``.  
 
 
 .. code-block:: python
@@ -68,7 +68,7 @@ We can compare this against a premium mapping service like Google maps:
 
 Identifying Synergies with NodePaths
 --------------------------
-One of the purposes of the `NodePaths` attribute is to give analysts and engineers a way to "index" transportation behavior. The ShippingLanes highway network only includes major motorways and trunks. As such, for routes of sufficient distance, there is a higher likelihood of similar routes appearing on similar network segments.
+One of the purposes of the ``NodePaths`` attribute is to give analysts and engineers a way to "index" transportation behavior. The ShippingLanes highway network only includes major motorways and trunks. As such, for routes of sufficient distance, there is a higher likelihood of similar routes appearing on similar network segments.
 
 As such, we can quickly compare and contrast large volumes of data by simply looking at the intersections between NodePaths - the most similar routes will have a greater number of nodes in common. 
 
